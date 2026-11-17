@@ -1,0 +1,59 @@
+COMPROBACION DEL NUCLEO DESDE UNA EXTRACCION LIMPIA
+Fecha: 29 de octubre de 2026, America/Guayaquil.
+Origen: Etapa_4_IoT_Wokwi.zip, version entregada en la etapa 4.
+Orden ejecutada: python3 verificacion/ejecutar.py
+Compiladores: GCC y G++; C11 para el modelo y C++20 para el nucleo.
+Comprobaciones: -O2 -Wall -Wextra -Werror -pedantic.
+Alcance: modelo C y nucleo C++ compartido con el ESP32.
+La ejecucion del firmware completo en Wokwi queda respaldada por los
+antecedentes de etapa 4 y la confirmacion de validacion del equipo en etapa 5.
+
+SALIDA DE LA EJECUCION DE ESTA ETAPA
+OK normal cerrado            I=0.109090909 A P=1.309090909 W
+OK sobrecarga cerrado        I=0.163636364 A P=1.963636364 W
+OK deslastre por contacto    I=0.054545455 A P=0.654545455 W
+OK desfase 60 grados         I=0.109090909 A P=0.654545455 W
+OK puntos DC, limites analogicos y alimentacion representada cero
+
+OK arranque abierto y espera sin conexion automatica
+OK rearme valido conecta y apaga alarma
+OK potencia exactamente 1.50 W no dispara
+OK potencia inmediatamente superior dispara
+OK temperatura exactamente 55 C no dispara
+OK temperatura 55.0625 C dispara
+OK causas simultaneas quedan retenidas
+OK normalizar y PARAR no borran bloqueo
+OK rearme rechazado a 50 C y aceptado debajo
+OK rearme rechazado a 1.50 W y aceptado debajo
+OK datos invalidos impiden reconectar
+OK NaN e infinito se consideran fallo
+OK temperatura desconectada o fuera de rango bloquea
+OK electrica valida hasta 300 ms y vencida a 301 ms
+OK temperatura valida hasta 3000 ms y vencida a 3001 ms
+OK inicio sin electrica vence tras 300 ms
+OK inicio sin temperatura vence tras 3000 ms
+OK contacto que no cierra genera fallo tras asentamiento
+OK contacto cerrado pese a orden de apertura impide rearme
+OK PIR no cambia prioridad ni proteccion
+OK reloj millis soporta desbordamiento uint32
+OK rearme prematuro y fallo de sistema rechazados
+OK PARAR desde NORMAL abre y deja ESPERA
+OK orden normalizada, CRLF y linea vacia
+OK orden demasiado larga descarta tambien su cola
+OK medicion normal con cuantizacion del modelo
+OK medicion sobrecarga y apertura conserva rama prioritaria
+OK desfase 60 grados distingue potencia activa y aparente
+OK cero voltios representados no implica sensor averiado
+OK saturaciones analogicas y offset incorrecto invalidan
+OK avisos de muestreo perdidos invalidan ventana
+OK muestreo irregular excesivo se detecta
+OK energia de 60 s y demanda completa de 10 s
+OK demanda movil ponderada retira segmento antiguo
+OK ventana invalida no inventa energia y reinicia demanda
+OK hueco entre ventanas validas reinicia demanda sin estimar energia
+OK lazo modelo-medicion-control corta sobrecarga y calor
+REFERENCIA normal V=12.000069 I=0.109103 P=1.309246 S=1.309248 FP=0.999998
+REFERENCIA sobrecarga V=12.000069 I=0.163613 P=1.963364 S=1.963366 FP=0.999999
+REFERENCIA solo_prioritaria V=12.000069 I=0.054556 P=0.654677 S=0.654681 FP=0.999994
+REFERENCIA desfase_60 V=12.000069 I=0.109100 P=0.654573 S=1.309204 FP=0.499978
+TOTAL 37 | CORRECTAS 37 | FALLOS 0

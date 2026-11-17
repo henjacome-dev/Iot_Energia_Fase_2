@@ -1,0 +1,424 @@
+{
+  "version": 1,
+  "author": "Proyecto IoT MEC452",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 70,
+      "left": 0,
+      "attrs": {
+        "cpuFrequency": "16"
+      }
+    },
+    {
+      "type": "chip-medidor-ac",
+      "id": "medidor",
+      "top": 80,
+      "left": -250,
+      "attrs": {
+        "voltageRms": "12",
+        "nonPriorityOhms": "220",
+        "phaseDegrees": "0",
+        "mode": "0"
+      }
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temperatura",
+      "top": 270,
+      "left": -220,
+      "attrs": {
+        "temperature": "25"
+      }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "presencia",
+      "top": 400,
+      "left": -260,
+      "attrs": {
+        "delayTime": "5",
+        "inhibitTime": "1.2"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "rele",
+      "top": 80,
+      "left": 230,
+      "attrs": {
+        "transistor": "npn"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "alarma",
+      "top": 310,
+      "left": 230,
+      "attrs": {
+        "color": "red",
+        "label": "ALARMA"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 300,
+      "left": 350,
+      "attrs": {
+        "volume": "0.15"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "prioritaria",
+      "top": 80,
+      "left": 460,
+      "attrs": {
+        "color": "green",
+        "label": "PRIORITARIA"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "no_prioritaria",
+      "top": 190,
+      "left": 460,
+      "attrs": {
+        "color": "blue",
+        "label": "NO PRIORITARIA"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rDQ",
+      "top": 285,
+      "left": -130,
+      "rotate": 90,
+      "attrs": {
+        "value": "4700"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rContacto",
+      "top": 190,
+      "left": 300,
+      "rotate": 90,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rAlarma",
+      "top": 285,
+      "left": 170,
+      "attrs": {
+        "value": "330"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rPrioritaria",
+      "top": 50,
+      "left": 400,
+      "attrs": {
+        "value": "330"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rNoPrioritaria",
+      "top": 160,
+      "left": 400,
+      "attrs": {
+        "value": "330"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "titulo",
+      "top": -50,
+      "left": -250,
+      "attrs": {
+        "text": "ETAPA 4 | Medicion y deslastre automatico"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoModelo",
+      "top": 20,
+      "left": -270,
+      "attrs": {
+        "text": "SCT + ZMPT equivalentes\nCaptura comun V/I mediante SYNC"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoTemp",
+      "top": 240,
+      "left": -260,
+      "attrs": {
+        "text": "Temperatura del tablero"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoPir",
+      "top": 365,
+      "left": -260,
+      "attrs": {
+        "text": "Presencia"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoRele",
+      "top": 25,
+      "left": 220,
+      "attrs": {
+        "text": "Rele + interfaz equivalentes\nGPIO26 HIGH = conectar"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoCargas",
+      "top": -5,
+      "left": 445,
+      "attrs": {
+        "text": "Ramas\nde carga"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoAlarma",
+      "top": 270,
+      "left": 210,
+      "attrs": {
+        "text": "Alarma LED / buzzer"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "textoNota",
+      "top": 510,
+      "left": -250,
+      "attrs": {
+        "text": "12 VCA representados. Los GPIO reciben senales acondicionadas.\nContacto NO gobierna la contribucion de la carga desconectable."
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:3V3",
+      "medidor:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "temperatura:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "rDQ:1",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "rele:COM",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "medidor:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "temperatura:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "presencia:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "rele:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "buzzer:1",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "alarma:C",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "prioritaria:C",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "no_prioritaria:C",
+      "black",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "rContacto:2",
+      "black",
+      []
+    ],
+    [
+      "esp:VIN",
+      "presencia:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:VIN",
+      "rele:VCC",
+      "red",
+      []
+    ],
+    [
+      "medidor:VOUT",
+      "esp:D34",
+      "green",
+      []
+    ],
+    [
+      "medidor:IOUT",
+      "esp:D35",
+      "blue",
+      []
+    ],
+    [
+      "temperatura:DQ",
+      "esp:D4",
+      "gold",
+      []
+    ],
+    [
+      "temperatura:DQ",
+      "rDQ:2",
+      "gold",
+      []
+    ],
+    [
+      "presencia:OUT",
+      "esp:D27",
+      "orange",
+      []
+    ],
+    [
+      "esp:D26",
+      "rele:IN",
+      "orange",
+      []
+    ],
+    [
+      "rele:NO",
+      "medidor:CONTACT",
+      "purple",
+      []
+    ],
+    [
+      "rele:NO",
+      "esp:D32",
+      "purple",
+      []
+    ],
+    [
+      "rele:NO",
+      "rContacto:1",
+      "purple",
+      []
+    ],
+    [
+      "esp:D33",
+      "rAlarma:1",
+      "red",
+      []
+    ],
+    [
+      "rAlarma:2",
+      "alarma:A",
+      "red",
+      []
+    ],
+    [
+      "esp:D25",
+      "buzzer:2",
+      "orange",
+      []
+    ],
+    [
+      "medidor:PRIO",
+      "rPrioritaria:1",
+      "green",
+      []
+    ],
+    [
+      "rPrioritaria:2",
+      "prioritaria:A",
+      "green",
+      []
+    ],
+    [
+      "medidor:NOPRIO",
+      "rNoPrioritaria:1",
+      "blue",
+      []
+    ],
+    [
+      "rNoPrioritaria:2",
+      "no_prioritaria:A",
+      "blue",
+      []
+    ],
+    [
+      "esp:D14",
+      "medidor:SYNC",
+      "gray",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  }
+}

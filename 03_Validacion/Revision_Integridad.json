@@ -1,0 +1,31 @@
+{
+  "fecha": "2026-10-29",
+  "zip_origen": "Etapa_4_IoT_Wokwi.zip",
+  "sha256_zip_origen": "9efa2574a0deec17aaa8c4da39728e9c51af1c575b4c09e4e72d0844261e826f",
+  "archivos_ejecucion_identicos_al_origen": true,
+  "sha256_archivos_ejecucion": {
+    "sketch.ino": "e48b3621d02adc2bf55f92ede4c8ed6437714bce724fe2692c0aa3151c95c014",
+    "diagram.json": "cc238e95f363557ab6eaf84fd6805a0f193138b6752ffea5fca40addc81a3062",
+    "energia_control.h": "9dc44c662ac4307d5643d1c8763957120b1df27ad8d0d547b98bcbef603fa6ad",
+    "libraries.txt": "93b975220dfb028ebd38051ab0a441ef8527fc1431bfc593faac41b9520fead9",
+    "medidor-ac.chip.c": "f853bc06723e4abf3a430f25fa529281b9aac61a18c51ee393d8e8f6f6676587",
+    "medidor-ac.chip.json": "9f53a799174f97be70b9078ea0f7d61d3d8e51f4db4adad305465c3e1e3c5e59"
+  },
+  "json_y_enlaces_criticos": "correctos",
+  "atributos_iniciales": "12 V, 220 ohm, 0 grados, modo 0, 25 C, cpuFrequency 16",
+  "pruebas_nucleo": {
+    "correctas": 37,
+    "fallos": 0
+  },
+  "pruebas_modelo_c": "correctas",
+  "matriz_disponible": {
+    "casos": 42,
+    "estados": {
+      "Pendiente": 42
+    },
+    "resultados_vacios": 42,
+    "evidencias_vacias": 42
+  },
+  "validacion_etapa5": "satisfactoria segun confirmacion del usuario",
+  "caso_comercial": "DOCX actual y PDF revisado del mismo DOCX, sin cambios"
+}

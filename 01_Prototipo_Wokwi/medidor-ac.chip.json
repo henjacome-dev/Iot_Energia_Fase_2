@@ -1,0 +1,48 @@
+{
+  "name": "SCT + ZMPT equivalentes",
+  "author": "Proyecto IoT MEC452",
+  "pins": [
+    "VCC",
+    "GND",
+    "CONTACT",
+    "SYNC",
+    "PRIO",
+    "NOPRIO",
+    "IOUT",
+    "VOUT"
+  ],
+  "controls": [
+    {
+      "id": "voltageRms",
+      "label": "Tension representada (V RMS)",
+      "type": "range",
+      "min": 0,
+      "max": 15,
+      "step": 0.1
+    },
+    {
+      "id": "nonPriorityOhms",
+      "label": "Carga no prioritaria (ohm)",
+      "type": "range",
+      "min": 110,
+      "max": 440,
+      "step": 110
+    },
+    {
+      "id": "phaseDegrees",
+      "label": "Desfase de corriente (grados)",
+      "type": "range",
+      "min": 0,
+      "max": 90,
+      "step": 15
+    },
+    {
+      "id": "mode",
+      "label": "Modo: 0=CA 1..3=DC 4=fallo V 5=fallo I",
+      "type": "range",
+      "min": 0,
+      "max": 5,
+      "step": 1
+    }
+  ]
+}
